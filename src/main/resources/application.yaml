@@ -4,12 +4,10 @@ server:
 spring:
   profiles:
     default: default
-    active: dev, test, data
   application:
     name: test
   config:
-    import: optional:configserver:http://localhost:8080
-
+    import: ${config.server}
 eureka:
   instance:
     instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
@@ -17,4 +15,9 @@ eureka:
       profile: ${spring.profiles.active:${spring.profiles.default}}
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: ${eureka.server.url}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health
