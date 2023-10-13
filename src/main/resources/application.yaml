@@ -7,7 +7,7 @@ spring:
   application:
     name: test
   config:
-    import: ${config.server}
+    import: optional:configserver:${config.server}
 eureka:
   instance:
     instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
