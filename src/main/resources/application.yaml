@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    default: default
+    active: ${active_profile}
   application:
     name: test
   config:
