@@ -11,7 +11,7 @@ public class TestController {
     @Value("${test.data}")
     private String data;
 
-    @Value("${value}")
+    @Value("${default.value}")
     private String value;
 
     @GetMapping("/test")
