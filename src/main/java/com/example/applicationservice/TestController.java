@@ -11,9 +11,17 @@ public class TestController {
     @Value("${test.data}")
     private String data;
 
+    @Value("${value}")
+    private String value;
+
     @GetMapping("/test")
     public String test(){
         return data;
+    }
+
+    @GetMapping("/value")
+    public String getValue(){
+        return value;
     }
 
 }
