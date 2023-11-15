@@ -3,9 +3,14 @@ server:
 
 spring:
   application:
-    name: test
+    name: application
   config:
     import: optional:configserver:${config.server}
+  cloud:
+    config:
+      name: application
+  profiles:
+    active: local, test
 eureka:
   instance:
     instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}

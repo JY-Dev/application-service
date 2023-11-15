@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class TestController {
     @Value("${test.data}")
-    private String data;
+    private String data = "";
 
     @Value("${default.value}")
-    private String value;
+    private String value =" ";
+
+    @Value("${database.url}")
+    private String url;
 
     @GetMapping("/test")
     public String test(){
@@ -22,6 +25,11 @@ public class TestController {
     @GetMapping("/value")
     public String getValue(){
         return value;
+    }
+
+    @GetMapping("/db")
+    public String db() {
+        return url;
     }
 
 }
